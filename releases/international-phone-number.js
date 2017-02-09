@@ -83,8 +83,11 @@
           ctrl.$formatters.push(function(value) {
             if (!value) {
               return value;
+            } else {
+              $timeout(function() {
+                return element.intlTelInput('setNumber', value);
+              }, 0);
             }
-            element.intlTelInput('setNumber', value);
             return element.val();
           });
           ctrl.$parsers.push(function(value) {

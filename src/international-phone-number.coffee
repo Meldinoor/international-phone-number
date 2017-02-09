@@ -90,8 +90,10 @@ angular.module("internationalPhoneNumber", [])
     ctrl.$formatters.push (value) ->
       if !value
         return value
-
-      element.intlTelInput 'setNumber', value
+      else
+        $timeout () ->
+          element.intlTelInput 'setNumber', value
+        , 0
       element.val()
 
     ctrl.$parsers.push (value) ->
