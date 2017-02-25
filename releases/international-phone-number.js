@@ -85,10 +85,10 @@
               return value;
             } else {
               $timeout(function() {
-                return element.intlTelInput('setNumber', value);
+                element.intlTelInput('setNumber', value);
+                return element.val();
               }, 0);
             }
-            return element.val();
           });
           ctrl.$parsers.push(function(value) {
             if (!value) {
